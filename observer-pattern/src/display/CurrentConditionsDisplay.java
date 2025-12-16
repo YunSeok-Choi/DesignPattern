@@ -1,17 +1,16 @@
 package display;
 
-import weather.Subject;
-import weather.WeatherData;
+import weather.WeatherSubject;
 
 public class CurrentConditionsDisplay implements DisplayElement, Observer {
 
-    private final WeatherData weatherData;
+    private final WeatherSubject weatherSubject;
     private float temperature;
     private float humidity;
 
-    public CurrentConditionsDisplay(WeatherData weatherData) {
-        this.weatherData = weatherData;
-        weatherData.registerObserver(this);
+    public CurrentConditionsDisplay(WeatherSubject weatherSubject) {
+        this.weatherSubject = weatherSubject;
+        weatherSubject.registerObserver(this);
     }
 
     @Override
@@ -25,8 +24,8 @@ public class CurrentConditionsDisplay implements DisplayElement, Observer {
 
     @Override
     public void update() {
-        this.temperature = this.weatherData.getTemperature();
-        this.humidity = this.weatherData.getHumidity();
+        this.temperature = weatherSubject.getTemperature();
+        this.humidity = weatherSubject.getHumidity();
         display();
     }
 

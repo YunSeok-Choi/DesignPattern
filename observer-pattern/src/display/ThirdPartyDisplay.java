@@ -1,14 +1,15 @@
 package display;
 
 import weather.WeatherData;
+import weather.WeatherSubject;
 
 public class ThirdPartyDisplay implements DisplayElement, Observer {
 
-    private final WeatherData weatherData;
+    private final WeatherSubject weatherSubject;
 
-    public ThirdPartyDisplay(WeatherData weatherData) {
-        this.weatherData = weatherData;
-        weatherData.registerObserver(this);
+    public ThirdPartyDisplay(WeatherSubject weatherSubject) {
+        this.weatherSubject = weatherSubject;
+        weatherSubject.registerObserver(this);
     }
 
     @Override

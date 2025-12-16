@@ -5,7 +5,7 @@ import display.Observer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WeatherData implements Subject {
+public class WeatherData implements WeatherSubject {
 
     private List<Observer> observers;
     private float temperature;
@@ -45,14 +45,17 @@ public class WeatherData implements Subject {
         }
     }
 
+    @Override
     public float getTemperature() {
         return temperature;
     }
 
+    @Override
     public float getHumidity() {
         return humidity;
     }
 
+    @Override
     public float getPressure() {
         return pressure;
     }

@@ -1,15 +1,16 @@
 package display;
 
 import weather.WeatherData;
+import weather.WeatherSubject;
 
 public class ForecastDisplay implements DisplayElement, Observer {
 
-    private final WeatherData weatherData;
+    private final WeatherSubject weatherSubject;
     private float temperature;
 
-    public ForecastDisplay(WeatherData weatherData) {
-        this.weatherData = weatherData;
-        weatherData.registerObserver(this);
+    public ForecastDisplay(WeatherSubject weatherSubject) {
+        this.weatherSubject = weatherSubject;
+        weatherSubject.registerObserver(this);
     }
 
     @Override
@@ -22,7 +23,7 @@ public class ForecastDisplay implements DisplayElement, Observer {
 
     @Override
     public void update() {
-        this.temperature = weatherData.getTemperature();
+        this.temperature = weatherSubject.getTemperature();
         display();
     }
 }

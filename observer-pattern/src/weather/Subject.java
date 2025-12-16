@@ -5,9 +5,9 @@ import display.Observer;
 
 public interface Subject {
 
-    public void registerObserver(Observer o);
+    void registerObserver(Observer o);
 
-    public void removeObserver(Observer o);
+    void removeObserver(Observer o);
 
-    public void notifyObservers();
+    void notifyObservers();
 }
