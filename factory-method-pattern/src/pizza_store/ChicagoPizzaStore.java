@@ -13,6 +13,7 @@ public class ChicagoPizzaStore extends PizzaStore {
     // 팩토리 메소드 구현
     @Override
     public Pizza createPizza(PizzaName pizzaName) {
+        // 피지 하나를 직접 생성, 구체 클래스를 직접 new
         switch (pizzaName) {
             case VEGGIE:
                 return new ChicagoStyleVeggiePizza();

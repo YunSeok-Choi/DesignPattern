@@ -1,0 +1,9 @@
+package pizza.ingredient.veggie;
+
+public class Spinach implements Veggies {
+
+    @Override
+    public String toString() {
+        return VeggieType.SPINACH.getDescription();
+    }
+}
