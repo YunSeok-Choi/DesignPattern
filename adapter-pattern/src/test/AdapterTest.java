@@ -74,7 +74,6 @@ public class AdapterTest {
         turkeyAdapter.fly();
         String output = outputStream.toString().trim();
 
-        // TurkeyAdapter는 turkey.fly()를 5번 호출하므로 5줄 출력
         String[] lines = output.split(System.lineSeparator());
         assertThat(lines).hasSize(5);
 
