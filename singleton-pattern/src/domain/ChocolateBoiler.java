@@ -17,7 +17,6 @@ public class ChocolateBoiler {
         if (chocolateBoiler == null) {
             synchronized (ChocolateBoiler.class) {
                 if (chocolateBoiler == null) {
-                    System.out.println("인스턴스 생성");
                     chocolateBoiler = new ChocolateBoiler();
                 }
             }
@@ -25,26 +24,37 @@ public class ChocolateBoiler {
         return chocolateBoiler;
     }
 
-    public void fill() {
+    public String fill() {
         if (empty) {
-            System.out.println("보일러에 우유와 초콜릿 재료 추가");
             empty = false;
             boiled = false;
+            return "보일러에 우유와 초콜릿 재료 추가";
         }
+        return "보일러가 이미 가득 차 있습니다";
     }
 
-    public void drain() {
+    public String drain() {
         if (!empty && boiled) {
-            System.out.println("끓인 재료를 다음 단계로 넘김");
             empty = true;
+            return "끓인 재료를 다음 단계로 넘김";
         }
+        return "보일러가 비어있거나 재료가 끓지 않았습니다";
     }
 
-    public void boil() {
+    public String boil() {
         if (!empty && !boiled) {
-            System.out.println("재료를 끓임");
             boiled = true;
+            return "재료를 끓임";
         }
+        return "보일러가 비어있거나 이미 끓었습니다";
+    }
+
+    public boolean isEmpty() {
+        return empty;
+    }
+
+    public boolean isBoiled() {
+        return boiled;
     }
 
 }
