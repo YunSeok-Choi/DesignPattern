@@ -22,12 +22,10 @@ public class StatisticsDisplay implements DisplayElement, Observer {
     }
 
     @Override
-    public void display() {
-        System.out.println(
-                Display.STATISTICS.name() +
-                        " 평균/최대/최소 온도 : " +
-                        averageTemperature + "/" + maxTemperature + "/" + minTemperature
-        );
+    public String display() {
+        return Display.STATISTICS.name() +
+                " 평균/최대/최소 온도 : " +
+                averageTemperature + "/" + maxTemperature + "/" + minTemperature;
     }
 
     @Override
@@ -39,7 +37,17 @@ public class StatisticsDisplay implements DisplayElement, Observer {
         this.maxTemperature = Math.max(temperature, maxTemperature);
         this.minTemperature = Math.min(temperature, minTemperature);
         this.averageTemperature = sumTemperature / temperatures.size();
+    }
 
-        display();
+    public float getAverageTemperature() {
+        return averageTemperature;
+    }
+
+    public float getMaxTemperature() {
+        return maxTemperature;
+    }
+
+    public float getMinTemperature() {
+        return minTemperature;
     }
 }

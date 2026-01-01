@@ -14,16 +14,17 @@ public class ForecastDisplay implements DisplayElement, Observer {
     }
 
     @Override
-    public void display() {
-        System.out.println(
-                Display.FORECAST.name() +
-                " 온도: " + temperature
-        );
+    public String display() {
+        return Display.FORECAST.name() +
+                " 온도: " + temperature;
     }
 
     @Override
     public void update() {
         this.temperature = weatherSubject.getTemperature();
-        display();
+    }
+
+    public float getTemperature() {
+        return temperature;
     }
 }

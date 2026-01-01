@@ -1,5 +1,5 @@
 package display;
 
 public interface DisplayElement {
-    void display();
+    String display();
 }

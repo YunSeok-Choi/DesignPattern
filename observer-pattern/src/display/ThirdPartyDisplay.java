@@ -13,8 +13,8 @@ public class ThirdPartyDisplay implements DisplayElement, Observer {
     }
 
     @Override
-    public void display() {
-        System.out.println(Display.THIRD_PARTY.name());
+    public String display() {
+        return Display.THIRD_PARTY.name();
     }
 
     @Override
