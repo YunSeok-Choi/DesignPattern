@@ -20,26 +20,28 @@ public abstract class Pizza {
     private static final String explainBake = "350도에서 25분간 굽기";
     private static final String explainBox = "피자 가게 박스에 피자 포장하기";
 
-    public void prepare() {
-        System.out.println(name + explainReady);
-        System.out.println(explainMakeDaugh);
-        System.out.println(explainMakeSauce);
-        System.out.println(explainAddTopping);
+    public String prepare() {
+        StringBuilder result = new StringBuilder();
+        result.append(name).append(explainReady).append("\n");
+        result.append(explainMakeDaugh).append("\n");
+        result.append(explainMakeSauce).append("\n");
+        result.append(explainAddTopping).append("\n");
         for (Topping topping : toppings) {
-            System.out.println(" " + topping.getDescription());
+            result.append(" ").append(topping.getDescription()).append("\n");
         }
+        return result.toString();
     }
 
-    public void bake() {
-        System.out.println(explainBake);
+    public String bake() {
+        return explainBake;
     }
 
-    public void cut() {
-        System.out.println(CutStyle.REGULAR.getDescription());
+    public String cut() {
+        return CutStyle.REGULAR.getDescription();
     }
 
-    public void box() {
-        System.out.println(explainBox);
+    public String box() {
+        return explainBox;
     }
 
     public String getName() {

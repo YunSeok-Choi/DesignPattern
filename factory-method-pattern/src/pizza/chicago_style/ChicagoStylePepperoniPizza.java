@@ -19,7 +19,7 @@ public class ChicagoStylePepperoniPizza extends Pizza {
     }
 
     @Override
-    public void cut() {
-        System.out.println(CutStyle.SQUARE.getDescription());
+    public String cut() {
+        return CutStyle.SQUARE.getDescription();
     }
 }
